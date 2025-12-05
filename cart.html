@@ -77,6 +77,15 @@
       margin: 20px auto;
 
     }
+          .glass-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: auto;
+    color: #fff;
+}
   </style>
 
 </head>
@@ -96,10 +105,12 @@
   </div>
 </nav>
 <h1 >Your Cart</h1>
-
-<div class="cart-container" id="cartContainer"></div>
+<div class="glass-box">
+    <div class="cart-container" id="cartContainer"></div>
 
 <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+</div>
+
 <script>
   function loadCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
