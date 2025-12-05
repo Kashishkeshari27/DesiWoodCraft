@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+/* Full-screen background */
+body {
+    margin: 0;
+    font-family: Arial;
+    background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("https://www.timbertailored.com/wp-content/uploads/2023/10/pabloi99_wood_product_showcase_7f5b7d71-b1a1-43f3-aaf2-d52919aa716c_03.png")
+        no-repeat center center/cover;
+    min-height: 100vh;
+    color: white;
+    padding: 40px 20px;
+}
+
+/* Glass Box */
+.glass-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: auto;
+    color: #fff;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 28px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* Form Design */
+.request-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.request-form input,
+.request-form textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 16px;
+}
+
+.request-form textarea {
+    height: 120px;
+}
+
+.request-form input::placeholder,
+.request-form textarea::placeholder {
+    color: #eee;
+}
+
+/* Submit Button */
+.hero-btn {
+    background: #8d6e63;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background: #6d4c41;
+}
+
+/* Request cards */
+.request-card {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Grid Card Layout */
+.request-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+</style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">WoodCraft</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="artisans.html">Artisans</a></li>
+        <li class="nav-item"><a class="nav-link" href="product-request.html">Custom Request</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <section>
+      
+<div class="glass-box">
+
+    <h2 class="section-title">Request a Custom Wooden Product</h2>
+
+    <form id="requestForm" class="request-form">
+
+        <input type="text" id="custName" placeholder="Your Name" required>
+
+        <input type="text" id="custPhone" placeholder="Phone Number" required>
+
+        <textarea id="custRequest" placeholder="Explain your wooden product idea..." required></textarea>
+
+        <input type="text" id="custSize" placeholder="Preferred Size (optional)">
+
+        <input type="text" id="custMaterial" placeholder="Material (Teak, Sheesham, etc.)">
+
+        <input type="text" id="custBudget" placeholder="Budget (optional)">
+
+        <button type="submit" class="hero-btn">Submit Request</button>
+
+    </form>
+
+    <h3 style="margin-top: 25px;">Your Requests</h3>
+    <div id="requestList" class="request-container"></div>
+
+</div>
+    </section>
+   
+    <footer class="bg-dark text-white text-center p-3 mt-5 fixed-bottom">
+  <p>© 2025 WoodCraft – Handmade Wooden Products</p>
+</footer>
+    <script>
+// Load saved requests on page load
+window.onload = loadRequests;
+
+// Submit request handler
+document.getElementById("requestForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let newRequest = {
+        name: document.getElementById("custName").value,
+        phone: document.getElementById("custPhone").value,
+        idea: document.getElementById("custRequest").value,
+        size: document.getElementById("custSize").value,
+        material: document.getElementById("custMaterial").value,
+        budget: document.getElementById("custBudget").value,
+        date: new Date().toLocaleString()
+    };
+
+    let savedRequests = JSON.parse(localStorage.getItem("woodRequests")) || [];
+    savedRequests.push(newRequest);
+    localStorage.setItem("woodRequests", JSON.stringify(savedRequests));
+
+    alert("Your request has been submitted!");
+
+    document.getElementById("requestForm").reset();
+
+    loadRequests();
+});
+
+// Display all requests
+function loadRequests() {
+    let requestList = document.getElementById("requestList");
+    requestList.innerHTML = "";
+
+    let savedRequests = JSON.parse(localStorage.getItem("woodRequests")) || [];
+
+    savedRequests.forEach(req => {
+        requestList.innerHTML += `
+            <div class="request-card">
+                <h3>${req.name}</h3>
+                <p><strong>Phone:</strong> ${req.phone}</p>
+                <p><strong>Request:</strong> ${req.idea}</p>
+                <p><strong>Size:</strong> ${req.size}</p>
+                <p><strong>Material:</strong> ${req.material}</p>
+                <p><strong>Budget:</strong> ${req.budget}</p>
+                <p><small><strong>Date:</strong> ${req.date}</small></p>
+            </div>
+        `;
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">WoodCraft</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="artisans.html">Artisans</a></li>
+        <li class="nav-item"><a class="nav-link" href="product-request.html">Custom Request</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  </header>
+  
+    <section class="section">
+        <h2 class="section-title">Our Wooden Collection</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <img src="https://i.etsystatic.com/39150139/r/il/75c1f2/4607139611/il_1080xN.4607139611_g3pr.jpg" alt="">
+                <h3>Wooden Wall Clock</h3>
+                <p>₹799</p>
+                <button onclick="addToCart('Wooden Wall Colock', 799, 'https://i.etsystatic.com/39150139/r/il/75c1f2/4607139611/il_1080xN.4607139611_g3pr.jpg')">Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i5.walmartimages.com/seo/Rustic-Wood-Coffee-Table-Tray-Handles-Farmhouse-Centerpieces-Dining-Table-Decorative-Trays-Bar-Entryway-Decor-Rustic-Tray_ee7bd3dc-84f9-4d22-8539-404655363690.73aa49a56b959d938957eddb2ed1aa75.jpeg" alt="">
+                <h3> Wooden Tray</h3>
+                <p>₹499</p>
+                <button onclick="addToCart('Wooden Tray', 499, 'https://i5.walmartimages.com/seo/Rustic-Wood-Coffee-Table-Tray-Handles-Farmhouse-Centerpieces-Dining-Table-Decorative-Trays-Bar-Entryway-Decor-Rustic-Tray_ee7bd3dc-84f9-4d22-8539-404655363690.73aa49a56b959d938957eddb2ed1aa75.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.etsystatic.com/9972468/r/il/197ee2/1473636131/il_fullxfull.1473636131_e7ow.jpg" alt="">
+                <h3>Wooden Elephant</h3>
+                <p>₹999</p>
+                <button onclick="addToCart('Wooden Elephant', 999, 'https://i.etsystatic.com/9972468/r/il/197ee2/1473636131/il_fullxfull.1473636131_e7ow.jpg')">Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.xs7qx_VMqJ21ia8c7ojmMQHaJo?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+                <h3>Mini Coffee Table</h3>
+                <p>₹1999</p>
+                <button onclick="addToCart('Coffee Table', 1999, 'https://tse4.mm.bing.net/th/id/OIP.xs7qx_VMqJ21ia8c7ojmMQHaJo?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3')">Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/originals/c1/62/79/c16279fc6a7e2198cff86c537adfd662.jpg" alt="">
+                <h3>Wooden Flower Pot</h3>
+                <p>₹899</p>
+                <button onclick="addToCart('Wooden Flower Pot', 899, 'https://i.pinimg.com/originals/c1/62/79/c16279fc6a7e2198cff86c537adfd662.jpg')">Add to Cart</button>
+                
+            </div>
+
+            <div class="card">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.duySGe_hQIWJVd81oyBciQHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+                <h3>Wooden Lamp</h3>
+                <p>₹1499</p>
+                <button onclick="addToCart('Wooden Lamp', 1499, 'https://tse4.mm.bing.net/th/id/OIP.duySGe_hQIWJVd81oyBciQHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3')">Add to Cart</button>
+                
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/originals/ff/a5/c7/ffa5c7495014d67017b599ce93872980.jpg" alt="">
+                <h3>Wooden spoon</h3>
+                <p>₹499</p>
+                <button onclick="addToCart('Wooden Spoon', 499, 'https://i.pinimg.com/originals/ff/a5/c7/ffa5c7495014d67017b599ce93872980.jpg')">Add to Cart</button>
+                
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/originals/34/20/4e/34204e339da895d1ec56b07f9a553a53.jpg" alt="">
+                <h3>Key chain</h3>
+                <p>₹299</p>
+                <button onclick="addToCart('Key Chain', 299, 'https://i.pinimg.com/originals/34/20/4e/34204e339da895d1ec56b07f9a553a53.jpg')">Add to Cart</button>
+                
+            </div>
+            <div class="card">
+                <img src="https://tse1.explicit.bing.net/th/id/OIP.zmP-mMC8QHjAu_Gjc0Yk9AHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+                <h3>Book holder</h3>
+                <p>₹699</p>
+                <button onclick="addToCart('Book holder', 699, 'https://tse1.explicit.bing.net/th/id/OIP.zmP-mMC8QHjAu_Gjc0Yk9AHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3')">Add to Cart</button>
+                
+            </div>
+            <div class="card">
+                <img src="https://i.etsystatic.com/15712329/r/il/aa0c38/1784526236/il_fullxfull.1784526236_ocen.jpg" alt="">
+                <h3>Table Lamp</h3>
+                <p>₹799</p>
+                <button onclick="addToCart('Table Lamp', 799, 'https://i.etsystatic.com/15712329/r/il/aa0c38/1784526236/il_fullxfull.1784526236_ocen.jpg')">Add to Cart</button>
+                
+            </div>
+                 <div class="card">
+                <img src="https://i.pinimg.com/originals/7a/52/eb/7a52eb6ca30831f0809a2dcfd676232b.jpg" alt="">
+                <h3>Coasters</h3>
+                <p>₹699</p>
+                <button onclick="addToCart('Coasters', 799, 'https://i.pinimg.com/originals/7a/52/eb/7a52eb6ca30831f0809a2dcfd676232b.jpg')">Add to Cart</button>
+                
+            </div>
+                 <div class="card">
+                <img src="https://i.etsystatic.com/31964917/r/il/787d73/3586456283/il_1588xN.3586456283_h8d4.jpg" alt="">
+                <h3>Rattle Toy</h3>
+                <p>₹299</p>
+                <button onclick="addToCart('Rattle Toy', 299, 'https://i.etsystatic.com/31964917/r/il/787d73/3586456283/il_1588xN.3586456283_h8d4.jpg')">Add to Cart</button>
+                
+            </div>
+                 <div class="card">
+                <img src="https://tse1.explicit.bing.net/th/id/OIP.6QoOdUp58SuPvFgc0uEgywAAAA?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+                <h3>Phone holder</h3>
+                <p>₹399</p>
+                <button onclick="addToCart('Phone Stand', 399, 'https://tse1.explicit.bing.net/th/id/OIP.6QoOdUp58SuPvFgc0uEgywAAAA?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3')">Add to Cart</button>
+            </div>
+                 <div class="card">
+                <img src="https://www.nilkamalfurniture.com/cdn/shop/products/FANCIESIDETABLE.jpg?v=1680511696&width=1080" alt="">
+                <h3>Side Table</h3>
+                <p>₹1299</p>
+                <button onclick="addToCart('Side Table', 1299, 'https://www.nilkamalfurniture.com/cdn/shop/products/FANCIESIDETABLE.jpg?v=1680511696&width=1080')">Add to Cart</button>
+            </div>
+                 <div class="card">
+                <img src="https://m.media-amazon.com/images/I/91U69kUyqtL._AC_SL1500_.jpg" alt="">
+                <h3>Puzle Brain Testers </h3>
+                <p>₹699</p>
+                <button onclick="addToCart('Puzle Brain Testers', 699, 'https://m.media-amazon.com/images/I/91U69kUyqtL._AC_SL1500_.jpg')">Add to Cart</button>
+            </div>
+                 <div class="card">
+                <img src="https://ik.imagekit.io/2xkwa8s1i/img/npl_modified_images/Storage_Con/WSTCRHAWCBSGLS3/WSTCRHAWCBSGLS3_LS_01.jpg?tr=w-640" alt="">
+                <h3>Air tight container</h3>
+                <p>₹699</p>
+                <button onclick="addToCart('Air Tight Container', 699, 'https://ik.imagekit.io/2xkwa8s1i/img/npl_modified_images/Storage_Con/WSTCRHAWCBSGLS3/WSTCRHAWCBSGLS3_LS_01.jpg?tr=w-640')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    <div id="product-list" class="row"></div>
+    <footer class="bg-dark text-white text-center p-3 mt-5 fixed-bottom">
+  <p>© 2025 WoodCraft – Handmade Wooden Products</p>
+</footer>
+<script>
+function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            qty: 1,
+            image: image  // NOTE: 'image' → matches your cart.html code
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+</script>
+
+
+</body>
+</html>

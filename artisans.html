@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body id="artist">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">WoodCraft</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="artisans.html">Artisans</a></li>
+        <li class="nav-item"><a class="nav-link" href="product-request.html">Custom Request</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <section id="nearby" class="section">
+      <div>
+           <h2 class="section-title">Find Nearby Wooden Artisans</h2>
+
+    <button class="hero-btn" onclick="findArtisans()">Find Artisans Near Me</button>
+
+    <p id="userLocation" style="margin-top:15px; font-weight:bold;"></p>
+
+    <div id="artisanList" style="margin-top:20px;"></div>
+      </div>
+   
+</section>
+
+    <footer class="bg-dark text-white text-center p-3 mt-5 fixed-bottom">
+  <p>© 2025 WoodCraft – Handmade Wooden Products</p>
+</footer>
+<script>
+// Predefined cities + artisan data
+const cityData = [
+    { city: "Lucknow", lat: 26.8467, lon: 80.9462,
+      artisans: [
+         {name:"Rahul Sharma", area:"Gomti Nagar", exp:5},
+         {name:"Anjali Crafts", area:"Hazratganj", exp:3}
+      ]},
+
+    { city: "Kanpur", lat: 26.4499, lon: 80.3319,
+      artisans: [
+         {name:"WoodenWorks", area:"Kakadeo", exp:7},
+         {name:"HandArt", area:"Swaroop Nagar", exp:4}
+      ]},
+
+    { city: "Delhi", lat: 28.7041, lon: 77.1025,
+      artisans: [
+         {name:"Delhi Wood House", area:"Rohini", exp:10},
+         {name:"CraftVilla", area:"Janakpuri", exp:6}
+      ]}
+];
+
+// Calculate distance in KM
+function distance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+
+    const a = Math.sin(dLat/2)**2 +
+              Math.cos(lat1 * Math.PI/180) *
+              Math.cos(lat2 * Math.PI/180) *
+              Math.sin(dLon/2)**2;
+
+    return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+}
+
+// User location fetch
+function findArtisans() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        document.getElementById("userLocation").innerHTML =
+            "Geolocation not supported by your browser.";
+    }
+}
+
+function showPosition(position) {
+    let userLat = position.coords.latitude;
+    let userLon = position.coords.longitude;
+
+    document.getElementById("userLocation").innerHTML =
+        `📍 Your Location: ${userLat.toFixed(3)}, ${userLon.toFixed(3)}`;
+
+    let nearestCity = null;
+    let minDist = Infinity;
+
+    // Find nearest city
+    cityData.forEach(city => {
+        let dist = distance(userLat, userLon, city.lat, city.lon);
+        if (dist < minDist) {
+            minDist = dist;
+            nearestCity = { ...city, distance: dist };
+        }
+    });
+
+    // Display artisan cards
+    let container = document.getElementById("artisanList");
+    container.innerHTML = `
+        <h3>Nearest City: ${nearestCity.city} (${nearestCity.distance.toFixed(1)} km away)</h3>
+    `;
+
+    nearestCity.artisans.forEach(a => {
+        container.innerHTML += `
+            <div class="artisan-card">
+                <h3>${a.name}</h3>
+                <p><strong>Area:</strong> ${a.area}</p>
+                <p><strong>Experience:</strong> ${a.exp} years</p>
+                <p><strong>Specialty:</strong> Handmade wooden crafts</p>
+            </div>
+        `;
+    });
+}
+</script>
+
+</body>
+</html>
